@@ -12,6 +12,7 @@ import { cn } from "@/lib/utils";
 
 import { Footer } from "./_components/footer";
 import { Header } from "./_components/header";
+import { ThemeProvider } from "./_components/theme-provider";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -50,15 +51,17 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
     <html
       lang="pt"
       className={`${fontSora.variable} ${fontRobotoMono.variable} ${fontRobotoFlex.variable}`}>
-      <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased dark",
-          fontSans.variable
-        )}>
-        <Header />
-        {children}
-        <Footer />
-      </body>
+      <ThemeProvider attribute="class" defaultTheme="system">
+        <body
+          className={cn(
+            "dark:bg-dark-hero-pattern bg-light-hero-pattern min-h-screen flex flex-col font-sans antialiased mx-auto",
+            fontSans.variable
+          )}>
+          <Header />
+          {children}
+          <Footer />
+        </body>
+      </ThemeProvider>
     </html>
   );
 }

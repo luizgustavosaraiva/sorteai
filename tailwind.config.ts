@@ -21,6 +21,11 @@ const config = {
       },
     },
     extend: {
+      backgroundImage: {
+        "dark-hero-pattern":
+          "linear-gradient(to bottom, black, transparent), url('/assets/bg-pattern.svg')",
+        "light-hero-pattern": "url('/assets/bg-pattern.svg')",
+      },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
         sora: ["var(--font-sora)", ...fontFamily.sans],
